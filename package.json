@@ -7,7 +7,8 @@
     "compile": "tsc -p .",
     "compile:test": "tsc -p . --noEmit",
     "lint": "eslint --ext .ts --ignore-path .gitignore ./src",
-    "lint:fix": "eslint --ext .ts --ignore-path .gitignore ./src --fix"
+    "lint:fix": "eslint --ext .ts --ignore-path .gitignore ./src --fix",
+    "prepublishOnly": "tsc -p ."
   },
   "repository": {
     "type": "git",
