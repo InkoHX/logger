@@ -39,5 +39,8 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "moment": "^2.24.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
