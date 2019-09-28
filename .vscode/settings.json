@@ -1,0 +1,16 @@
+{
+  "editor.formatOnSave": false,
+  "eslint.autoFixOnSave": true,
+  "eslint.packageManager": "yarn",
+  "npm.packageManager": "yarn",
+  "eslint.validate": [
+    "javascript",
+    {
+      "language": "typescript",
+      "autoFix": true
+    }
+  ],
+  "files.associations": {
+    "*.ts": "typescript"
+  }
+}

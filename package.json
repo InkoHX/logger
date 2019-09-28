@@ -1,0 +1,43 @@
+{
+  "name": "@inkohx/logger",
+  "version": "0.1.0",
+  "description": "Logger library.",
+  "main": "dist/index.js",
+  "scripts": {
+    "compile": "tsc -p .",
+    "compile:test": "tsc -p . --noEmit",
+    "lint": "eslint --ext .ts --ignore-path .gitignore ./src",
+    "lint:fix": "eslint --ext .ts --ignore-path .gitignore ./src --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InkoHX/logger.git"
+  },
+  "keywords": [
+    "logger"
+  ],
+  "author": "InkoHX (inkohx@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/InkoHX/logger/issues"
+  },
+  "homepage": "https://github.com/InkoHX/logger#readme",
+  "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/moment": "^2.13.0",
+    "@types/node": "^12.7.8",
+    "@typescript-eslint/eslint-plugin": "^2.3.1",
+    "@typescript-eslint/parser": "^2.3.1",
+    "eslint": "^6.4.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "typescript": "^3.6.3"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "moment": "^2.24.0"
+  }
+}
