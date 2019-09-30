@@ -1,5 +1,7 @@
 # @inkohx/logger
 
+![@inkohx/logger Screenshot](https://imgur.com/SXFdEqy)
+
 自分用ロガーライブラリー
 
 - 時刻表示
