@@ -1,6 +1,6 @@
 # @inkohx/logger
 
-![@inkohx/logger Screenshot](https://imgur.com/SXFdEqy)
+![@inkohx/logger Screenshot](https://i.imgur.com/SXFdEqy.png)
 
 自分用ロガーライブラリー
 
