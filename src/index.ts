@@ -42,28 +42,28 @@ export default class Logger {
   }
 
   public info (data: any): this {
-    console.log(`${chalk.bgCyan(`[${moment().format(this.timestamp)}]`)} ${Utils.flatten(data)}`)
+    console.log(`${chalk.bgBlueBright(`[${moment().format(this.timestamp)}]`)} ${Utils.flatten(data)}`)
     this.writeFile('INFO', data)
 
     return this
   }
 
   public warn (data: any): this {
-    console.log(`${chalk.bgYellow(`[${moment().format(this.timestamp)}]`)} ${Utils.flatten(data)}`)
+    console.log(`${chalk.bgKeyword('orange')(`[${moment().format(this.timestamp)}]`)} ${chalk.keyword('orange')(Utils.flatten(data))}`)
     this.writeFile('WARN', data)
 
     return this
   }
 
   public error (data: any): this {
-    console.error(`${chalk.bgRed(`[${moment().format(this.timestamp)}]`)} ${chalk.bold.red(Utils.flatten(data))}`)
+    console.error(`${chalk.bgRedBright(`[${moment().format(this.timestamp)}]`)} ${chalk.bold.red(Utils.flatten(data))}`)
     this.writeFile('ERROR', data)
 
     return this
   }
 
   public debug (data: any): this {
-    console.log(`${chalk.bgMagenta(`[${moment().format(this.timestamp)}]`)} ${chalk.gray(Utils.flatten(data))}`)
+    console.log(`${chalk.bgBlackBright(`[${moment().format(this.timestamp)}]`)} ${chalk.gray(Utils.flatten(data))}`)
     this.writeFile('DEBUG', data)
 
     return this
