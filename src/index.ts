@@ -20,7 +20,7 @@ const defaultLoggerOptions: LoggerOptions = {
   logging: false
 }
 
-export class Logger {
+export default class Logger {
   public readonly logPath: string
   public readonly options: LoggerOptions
 
@@ -69,13 +69,13 @@ export class Logger {
     return this
   }
 
-  public setTimestamp (timestamp: string): this {
+  public setTimestampFormat (timestamp: string): this {
     this.timestamp = timestamp
 
     return this
   }
 
-  public getTimestamp (): string {
+  public getTimestampFormat (): string {
     return this.timestamp
   }
 

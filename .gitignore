@@ -62,3 +62,6 @@ typings/
 
 # TypeScript
 dist/
+
+# TypeDoc
+docs/
