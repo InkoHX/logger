@@ -20,6 +20,13 @@ const defaultLoggerOptions: LoggerOptions = {
   logging: false
 }
 
+const colors: {[key in LogType]: (timestamp: string, data: string) => string} = {
+  INFO: (timestamp, data) => `${chalk.bgBlueBright(`[${moment().format(timestamp)}]`)} ${data}`,
+  WARN: (timestamp, data) => `${chalk.bgKeyword('darkorange')(`[${moment().format(timestamp)}]`)} ${chalk.keyword('darkorange')(data)}`,
+  ERROR: (timestamp, data) => `${chalk.bgRedBright(`[${moment().format(timestamp)}]`)} ${chalk.bold.redBright(data)}`,
+  DEBUG: (timestamp, data) => `${chalk.bgBlackBright(`[${moment().format(timestamp)}]`)} ${chalk.grey(data)}`
+}
+
 export default class Logger {
   public readonly logPath: string
   public readonly options: LoggerOptions
@@ -42,31 +49,19 @@ export default class Logger {
   }
 
   public info (data: any): this {
-    console.log(`${chalk.bgBlueBright(`[${moment().format(this.timestamp)}]`)} ${Utils.flatten(data)}`)
-    this.writeFile('INFO', data)
-
-    return this
+    return this.writeFile('INFO', data)
   }
 
   public warn (data: any): this {
-    console.log(`${chalk.bgKeyword('orange')(`[${moment().format(this.timestamp)}]`)} ${chalk.keyword('orange')(Utils.flatten(data))}`)
-    this.writeFile('WARN', data)
-
-    return this
+    return this.writeFile('WARN', data)
   }
 
   public error (data: any): this {
-    console.error(`${chalk.bgRedBright(`[${moment().format(this.timestamp)}]`)} ${chalk.bold.red(Utils.flatten(data))}`)
-    this.writeFile('ERROR', data)
-
-    return this
+    return this.writeFile('ERROR', data)
   }
 
   public debug (data: any): this {
-    console.log(`${chalk.bgBlackBright(`[${moment().format(this.timestamp)}]`)} ${chalk.gray(Utils.flatten(data))}`)
-    this.writeFile('DEBUG', data)
-
-    return this
+    return this.writeFile('DEBUG', data)
   }
 
   public setTimestampFormat (timestamp: string): this {
@@ -80,7 +75,10 @@ export default class Logger {
   }
 
   private writeFile (type: LogType, data: any) {
+    console.log(colors[type](this.timestamp, Utils.flatten(data)))
     if (this.stream) this.stream.write(`[${moment().format(this.timestamp)}] [${type}] ${Utils.flatten(data, false) + EOL || '\n'}`)
+
+    return this
   }
 }
 
