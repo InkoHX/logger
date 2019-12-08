@@ -22,7 +22,7 @@ const defaultLoggerOptions: LoggerOptions = {
 
 const colors: {[key in LogType]: (timestamp: string, data: string, noColor?: boolean) => string} = {
   INFO: (timestamp, data) => `${chalk.bgBlueBright(`[${moment().format(timestamp)}]`)} ${data}`,
-  WARN: (timestamp, data, noColor = false) => `${chalk.bgKeyword('darkorange')(`[${moment().format(timestamp)}]`)} ${noColor === true ? data : chalk.bgKeyword('darkorange')(data)}`,
+  WARN: (timestamp, data, noColor = false) => `${chalk.bgKeyword('darkorange')(`[${moment().format(timestamp)}]`)} ${noColor === true ? data : chalk.keyword('darkorange')(data)}`,
   ERROR: (timestamp, data, noColor = false) => `${chalk.bgRedBright(`[${moment().format(timestamp)}]`)} ${noColor === true ? data : chalk.bold.redBright(data)}`,
   DEBUG: (timestamp, data, noColor = false) => `${chalk.bgBlackBright(`[${moment().format(timestamp)}]`)} ${noColor === true ? data : chalk.grey(data)}`
 }
