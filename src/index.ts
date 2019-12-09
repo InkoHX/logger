@@ -74,7 +74,7 @@ export default class Logger {
     return this.timestamp
   }
 
-  private writeFile (type: LogType, data: any) {
+  private writeFile (type: LogType, data: any): this {
     const isObject = Utils.isObject(data)
     console.log(colors[type](this.timestamp, Utils.flatten(data, isObject), isObject))
     if (this.stream) this.stream.write(`[${moment().format(this.timestamp)}] [${type}] ${Utils.flatten(data, false) + EOL || '\n'}`)
