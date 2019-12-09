@@ -1,6 +1,6 @@
 {
   "name": "@inkohx/logger",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "Logger library.",
   "main": "dist/index.js",
   "scripts": {
@@ -27,20 +27,20 @@
   "devDependencies": {
     "@types/chalk": "^2.2.0",
     "@types/moment": "^2.13.0",
-    "@types/node": "^12.7.9",
-    "@typescript-eslint/eslint-plugin": "^2.3.2",
-    "@typescript-eslint/parser": "^2.3.2",
-    "eslint": "^6.5.1",
+    "@types/node": "^12.12.14",
+    "@typescript-eslint/eslint-plugin": "^2.10.0",
+    "@typescript-eslint/parser": "^2.10.0",
+    "eslint": "^6.7.2",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "typedoc": "^0.15.0",
-    "typescript": "^3.6.3"
+    "typedoc": "^0.15.4",
+    "typescript": "^3.7.3"
   },
   "dependencies": {
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "moment": "^2.24.0"
   },
   "publishConfig": {

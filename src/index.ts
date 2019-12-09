@@ -20,11 +20,11 @@ const defaultLoggerOptions: LoggerOptions = {
   logging: false
 }
 
-const colors: {[key in LogType]: (timestamp: string, data: string) => string} = {
+const colors: {[key in LogType]: (timestamp: string, data: string, noColor?: boolean) => string} = {
   INFO: (timestamp, data) => `${chalk.bgBlueBright(`[${moment().format(timestamp)}]`)} ${data}`,
-  WARN: (timestamp, data) => `${chalk.bgKeyword('darkorange')(`[${moment().format(timestamp)}]`)} ${chalk.keyword('darkorange')(data)}`,
-  ERROR: (timestamp, data) => `${chalk.bgRedBright(`[${moment().format(timestamp)}]`)} ${chalk.bold.redBright(data)}`,
-  DEBUG: (timestamp, data) => `${chalk.bgBlackBright(`[${moment().format(timestamp)}]`)} ${chalk.grey(data)}`
+  WARN: (timestamp, data, noColor = false) => `${chalk.bgKeyword('darkorange')(`[${moment().format(timestamp)}]`)} ${noColor === true ? data : chalk.keyword('darkorange')(data)}`,
+  ERROR: (timestamp, data, noColor = false) => `${chalk.bgRedBright(`[${moment().format(timestamp)}]`)} ${noColor === true ? data : chalk.bold.redBright(data)}`,
+  DEBUG: (timestamp, data, noColor = false) => `${chalk.bgBlackBright(`[${moment().format(timestamp)}]`)} ${noColor === true ? data : chalk.grey(data)}`
 }
 
 export default class Logger {
@@ -74,8 +74,9 @@ export default class Logger {
     return this.timestamp
   }
 
-  private writeFile (type: LogType, data: any) {
-    console.log(colors[type](this.timestamp, Utils.flatten(data)))
+  private writeFile (type: LogType, data: any): this {
+    const isObject = Utils.isObject(data)
+    console.log(colors[type](this.timestamp, Utils.flatten(data, isObject), isObject))
     if (this.stream) this.stream.write(`[${moment().format(this.timestamp)}] [${type}] ${Utils.flatten(data, false) + EOL || '\n'}`)
 
     return this
@@ -97,5 +98,11 @@ class Utils {
     }
 
     return object
+  }
+
+  public static isObject (data: any): boolean {
+    if (data instanceof Error) return false
+
+    return typeof data === 'object'
   }
 }
