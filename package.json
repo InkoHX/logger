@@ -1,6 +1,6 @@
 {
   "name": "@inkohx/logger",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Logger library.",
   "main": "dist/index.js",
   "scripts": {
