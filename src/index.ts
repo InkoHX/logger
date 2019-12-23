@@ -95,8 +95,8 @@ export default class Logger {
 
   public error (data: any): this {
     return this.writeFile('ERROR', data, {
-      console: this.options.display?.console?.debug,
-      file: this.options.display?.file?.debug
+      console: this.options.display?.console?.error,
+      file: this.options.display?.file?.error
     })
   }
 
